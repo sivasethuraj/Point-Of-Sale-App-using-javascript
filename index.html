@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing</title>
+
+    <!-- links -->
+    <base href="/" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <!--  -->
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-5 leftside-top">
+          <div class="">
+            <input
+              class="form-control"
+              value="Total Price Is : "
+              readonly
+              type="text"
+            />
+
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Unit Price</th>
+                  <th>Total Price</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-2" id="nav-items">
+          <ul class="nav flex-column nav-pills">
+            <li class="nav-item my-1 arrow">
+              <a
+                class="nav-link d-flex justify-content-center"
+                aria-current="page"
+                href="#"
+                ><i class="fa-solid fa-up-long text-black"></i
+              ></a>
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Vegetarion</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Non Vegetarion</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Cool Drinks</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Snacks</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Tea</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Noodles</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Dumplings</a
+              >
+            </li>
+            <li class="nav-item my-1">
+              <a
+                class="nav-link text-light bg-primary"
+                aria-current="page"
+                href="#"
+                >Ice Creams</a
+              >
+            </li>
+            <li class="nav-item my-1 arrow">
+              <a
+                class="nav-link d-flex justify-content-center"
+                aria-current="page"
+                href="#"
+                ><i class="fa-solid fa-down-long text-black"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="col-sm-12 col-md-5 rightside-top d-flex flex-column justify-content-between"
+          id="list-items"
+        >
+          <div class="row flex-row mb-1">
+            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+          </div>
+          <div class="row flex-row mb-1">
+            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
+          </div>
+          <div class="row flex-row mb-1">
+            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
+          </div>
+          <div class="row flex-row mb-1">
+            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
+            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-5 col-sm-12 leftside-bottom" id="itemname">
+          <div class="row text-center">
+            <div class="col-3 col-md-3">
+              <label class="form-label text-primary" for="itemname"
+                >Item Name</label
+              >
+            </div>
+            <div class="col-3 col-md-3">
+              <label class="form-label text-primary" for="itemprice"
+                >Item Price</label
+              >
+            </div>
+            <div class="col-3 col-md-3">
+              <label class="form-label text-primary" for="itemquantity">
+                Quantity</label
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 col-md-3">
+              <input class="form-control" type="text" id="itemname" />
+            </div>
+            <div class="col-3 col-md-3">
+              <input class="form-control" type="text" id="itemprice" />
+            </div>
+            <div class="col-3 col-md-3">
+              <input class="form-control" type="text" id="itemquantity" />
+            </div>
+            <div class="col">
+              <button class="btn btn-primary">Add</button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md-7 col-sm-12 d-flex justify-content-center align-items-center rightside-bottom"
+        >
+          <button
+            class="btn btn-primary p-4 bg-warning text-black"
+            id="bill-btn"
+          >
+            <i class="fa-solid fa-play"></i> Bill
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- script file -->
+    <script src="jquery.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <!--  -->
+  </body>
+</html>

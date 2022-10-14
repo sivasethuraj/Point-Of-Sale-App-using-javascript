@@ -1,0 +1,29 @@
+body {
+  background-color: #aaaeb1af;
+}
+#list-items {
+  cursor: pointer;
+}
+.rightside-top {
+  background-color: #aaaeb1af;
+}
+.rightside-bottom {
+  height: 14rem;
+  background-color: greenyellow;
+}
+.leftside-bottom {
+  height: 14rem;
+  background-color: #aaaeb1af;
+}
+.leftside-top {
+  background-color: #aaaeb1af;
+}
+#nav-items {
+  background-color: #aaaeb1af;
+}
+.arrow {
+  background-color: #87888aaf;
+}
+.arrow a i {
+  font-size: 2rem;
+}
