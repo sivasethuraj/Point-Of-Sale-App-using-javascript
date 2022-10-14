@@ -41,19 +41,31 @@
             </table>
           </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-2" id="nav-items">
-          <ul class="nav flex-column nav-pills">
+        <div class="col-12 col-sm-12 col-md-2 carousel slide" id="nav-items">
+          <ul class="nav flex-column nav-pills carousel-inner">
             <li class="nav-item my-1 arrow">
               <a
                 class="nav-link d-flex justify-content-center"
                 aria-current="page"
                 href="#"
+                data-bs-target="#nav-items"
+                data-bs-slide="prev"
+                data-bs-interval="false"
+                type="button"
                 ><i class="fa-solid fa-up-long text-black"></i
               ></a>
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-light bg-primary carousel-item"
+                aria-current="page"
+                href="#"
+                >Fruit and vegetables.</a
+              >
+            </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="nav-link text-light bg-primary carousel-item active"
                 aria-current="page"
                 href="#"
                 >Vegetarion</a
@@ -115,11 +127,39 @@
                 >Ice Creams</a
               >
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-light bg-primary carousel-item"
+                aria-current="page"
+                href="#"
+                >Fruit and vegetables.</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-light bg-primary carousel-item"
+                aria-current="page"
+                href="#"
+                >Starchy food.</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-light bg-primary carousel-item"
+                aria-current="page"
+                href="#"
+                >Dairy..</a
+              >
+            </li>
             <li class="nav-item my-1 arrow">
               <a
                 class="nav-link d-flex justify-content-center"
                 aria-current="page"
                 href="#"
+                data-bs-target="#nav-items"
+                data-bs-slide="next"
+                data-bs-interval="false"
+                type="button"
                 ><i class="fa-solid fa-down-long text-black"></i
               ></a>
             </li>
