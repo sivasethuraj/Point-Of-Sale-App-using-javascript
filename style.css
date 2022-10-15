@@ -27,3 +27,11 @@ body {
 .arrow a i {
   font-size: 2rem;
 }
+
+/* .istrow {
+  height: 75vh;
+} */
+
+td {
+  text-align: center;
+}

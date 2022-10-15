@@ -1,45 +1,111 @@
-// $( this ).off( 'click' );
-if ( typeof ( Storage !== 'undefined' ) ) {
 
-    const items = {
+const items = [
 
-        fruits: {
-            name: [ 'apple', 'orange', 'banana', 'guava', 'grapes' ],
-            price: [ 100, 90, 86, 10, 34 ],
-        },
-        vegetarion: {
-            name: [ 'pappardale', 'tofuskewers', 'barleyposole', 'Broccolini', 'GarlicFrittata' ],
-            price: [ 130, 190, 186, 110, 134 ],
-        },
-        nonVegetarion: {
-            name: [ 'Grilled Chicken', 'Mutton', 'Malabar Fish Biryani', 'Keema Samosa', 'Curried Parmesan Fish' ],
-            price: [ 200, 290, 286, 210, 234 ],
-        },
-        coolDrinks: {
-            name: [ 'Coca Cola', 'Pepsi', 'Sprite', 'ThumsUp', 'Fanta' ],
-            price: [ 10, 15, 16, 13, 14 ],
-        },
-        tea: {
-            name: [ 'green tea', 'Assam tea', 'White tea', 'Darjeeling Tea', 'Masala Tea' ],
-            price: [ 50, 40, 56, 60, 24 ],
-        },
-        noodles: {
-            name: [ 'Cup Noodles', 'Rice noodles.', 'Fried noodles', 'Frozen noodles', 'Instant noodle' ],
-            price: [ 163, 145, 164, 143, 145 ],
-        },
-        dumplings: {
-            name: [ 'Potstickers', 'Potstickers', 'Soup Dumplings', 'Pan-Fried Dumplings', 'Wontons' ],
-            price: [ 65, 54, 46, 35, 43 ],
-        },
-        iceCream: {
-            name: [ 'Chocolate ', 'Vanilla ', 'Mint Chocolate Chip ', 'Cookie Dough ', 'Buttered Pecan' ],
-            price: [ 40, 70, 56, 60, 56 ],
-        },
+    {
+        id: '11', name: 'veg1', qty: '0', unitPrice: '30', totalPrice: '0',
+    },
+    {
+        id: '12', name: 'veg2', qty: '0', unitPrice: '40', totalPrice: '0',
+    },
+    {
+        id: '21', name: 'nonveg1', qty: '0', unitPrice: '100', totalPrice: '0',
+    },
+    {
+        id: '22', name: 'nonveg2', qty: '0', unitPrice: '150', totalPrice: '0',
+    },
+    {
+        id: '31', name: 'cooldrink1', qty: '0', unitPrice: '10', totalPrice: '0',
+    },
+    {
+        id: '32', name: 'cooldrink2', qty: '0', unitPrice: '20', totalPrice: '0',
+    },
+    {
+        id: '41', name: 'snack1', qty: '0', unitPrice: '20', totalPrice: '0',
+    },
+    {
+        id: '42', name: 'snack2', qty: '0', unitPrice: '20', totalPrice: '0',
+    },
+    {
+        id: '51', name: 'tea1', qty: '0', unitPrice: '10', totalPrice: '0',
+    },
+    {
+        id: '52', name: 'tea2', qty: '0', unitPrice: '20', totalPrice: '0',
+    },
+    {
+        id: '61', name: 'noodles1', qty: '0', unitPrice: '50', totalPrice: '0',
+    },
+    {
+        id: '62', name: 'noodles2', qty: '0', unitPrice: '60', totalPrice: '0',
+    },
+    {
+        id: '71', name: 'dumpling1', qty: '0', unitPrice: '120', totalPrice: '0',
+    },
+    {
+        id: '72', name: 'dumpling2', qty: '0', unitPrice: '130', totalPrice: '0',
+    },
+    {
+        id: '81', name: 'icecream1', qty: '0', unitPrice: '50', totalPrice: '0',
+    },
+    {
+        id: '82', name: 'icecream2', qty: '0', unitPrice: '70', totalPrice: '0',
+    },
+    {
+        id: '91', name: 'fruit1', qty: '0', unitPrice: '30', totalPrice: '0',
+    },
+    {
+        id: '92', name: 'fruit2', qty: '0', unitPrice: '50', totalPrice: '0',
+    },
+    {
+        id: '101', name: 'starchy1', qty: '0', unitPrice: '70', totalPrice: '0',
+    },
+    {
+        id: '102', name: 'starchy2', qty: '0', unitPrice: '80', totalPrice: '0',
+    },
+]
 
-    };
 
-    // localStorage.setItem()
+// <== METHOD FOR  : ==> identifying details of the item and set local storage
+
+const image = document.querySelectorAll( 'img' );
+image.forEach( ( eachElement ) => {
+
+    eachElement.addEventListener( 'click', ( element ) => {
+
+        const elementId = element.target.id;
+        const clickedItemIndex = items.findIndex( ( object ) => {
+            return object.id === elementId;
+        } );
+        console.log( 'index :', clickedItemIndex );
+        const currentObject = items[ clickedItemIndex ];
+
+        currentObject.qty = parseInt( currentObject.qty ) + 1;
+        currentObject.totalPrice = parseFloat( currentObject.qty ) * parseFloat( currentObject.unitPrice );
+        localStorage.setItem( `${currentObject.id}`, JSON.stringify( currentObject ) );
+        toConvertTableData();
+    } );
+} );
+
+// <== METHOD FOR UPDATE ITEMS : ==>
+
+function toConvertTableData () {
+    document.querySelector( '#tbody' ).innerHTML = '';
+    for ( const key in localStorage ) {
+
+        console.log( ` ${localStorage.getItem( key )}` )
+        const object = JSON.parse( localStorage.getItem( key ) );
+
+        if ( localStorage.hasOwnProperty( key ) ) {
+            const tr = `<tr>
+                  <td>${object.name}</td>
+                  <td>${object.qty}</td>
+                  <td>${object.unitPrice}</td>
+                  <td>${( object.qty * object.unitPrice )}</td>
+                </tr>`;
+            const tBody = document.querySelector( '#tbody' ).innerHTML += tr;
+        }
+    }
 }
+
 
 $( '#veg ' ).hide()
 $( '#nonveg ' ).hide()
