@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12 col-md-5 leftside-top">
-          <div class="">
+          <div class="my-1">
             <input
               class="form-control"
               value="Total Price Is : "
@@ -55,102 +55,117 @@
                 ><i class="fa-solid fa-up-long text-black"></i
               ></a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-light bg-primary carousel-item"
-                aria-current="page"
-                href="#"
-                >Fruit and vegetables.</a
-              >
-            </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary carousel-item active"
+                class="vegetarion nav-link text-light bg-primary carousel-item active menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="veg-btn"
                 >Vegetarion</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="nonvegetarion nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="nonveg-btn"
                 >Non Vegetarion</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="cooldrinks nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="cooldrinks-btn"
                 >Cool Drinks</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="cooldrinks nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="snacks-btn"
                 >Snacks</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="tea nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="tea-btn"
                 >Tea</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="noodles nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="noodles-btn"
                 >Noodles</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="dumblings nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="dumplings-btn"
                 >Dumplings</a
               >
             </li>
             <li class="nav-item my-1">
               <a
-                class="nav-link text-light bg-primary"
+                class="icecream nav-link text-light bg-primary menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="icecream-btn"
                 >Ice Creams</a
               >
             </li>
             <li class="nav-item">
               <a
-                class="nav-link text-light bg-primary carousel-item"
+                class="fruit nav-link text-light bg-primary carousel-item menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="fruit-btn"
                 >Fruit and vegetables.</a
               >
             </li>
             <li class="nav-item">
               <a
-                class="nav-link text-light bg-primary carousel-item"
+                class="starchy nav-link text-light bg-primary carousel-item menu"
                 aria-current="page"
                 href="#"
+                onclick="changeImage(this)"
+                id="starchy-btn"
                 >Starchy food.</a
               >
             </li>
             <li class="nav-item">
               <a
-                class="nav-link text-light bg-primary carousel-item"
+                class="all-btn nav-link text-light bg-primary carousel-item menu"
                 aria-current="page"
                 href="#"
-                >Dairy..</a
+                onclick="changeImage(this)"
+                id="all-btn"
+                >All Items</a
               >
             </li>
+
             <li class="nav-item my-1 arrow">
               <a
                 class="nav-link d-flex justify-content-center"
@@ -169,29 +184,93 @@
           class="col-sm-12 col-md-5 rightside-top d-flex flex-column justify-content-between"
           id="list-items"
         >
-          <div class="row flex-row mb-1">
-            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+          <div class="row flex-row my-1" id="veg">
+            <img class="col-6 img-thumbnail rounded" src="/images/veg1.jfif" />
+            <img class="col-6 img-thumbnail rounded" src="/images/veg4.jfif" />
           </div>
-          <div class="row flex-row mb-1">
-            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
+          <div class="row flex-row my-1" id="nonveg">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/nonveg1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/nonveg2.jfif"
+            />
           </div>
-          <div class="row flex-row mb-1">
-            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
+          <div class="row flex-row my-1" id="cooldrinks">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/cooldrink1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/cooldrink2.jfif"
+            />
           </div>
-          <div class="row flex-row mb-1">
-            <img class="col-3 img-thumbnail rounded" src="/images/veg3.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg1.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg4.jfif" />
-            <img class="col-3 img-thumbnail rounded" src="/images/veg2.jfif" />
+          <div class="row flex-row my-1" id="snacks">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/snack1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/snack2.jfif"
+            />
+          </div>
+          <div class="row flex-row my-1" id="tea">
+            <img class="col-6 img-thumbnail rounded" src="/images/tea1.jfif" />
+            <img class="col-6 img-thumbnail rounded" src="/images/tea2.jfif" />
+          </div>
+          <div class="row flex-row my-1" id="noodles">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/noodle1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/noodle2.jfif"
+            />
+          </div>
+          <div class="row flex-row my-1" id="dumplings">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/dumpling1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/dumpling2.jfif"
+            />
+          </div>
+          <div class="row flex-row my-1" id="icecreams">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/icecream1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/icecream2.jfif"
+            />
+          </div>
+          <div class="row flex-row my-1" id="fruits">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/fruit1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/fruit2.jfif"
+            />
+          </div>
+          <div class="row flex-row my-1" id="starchy">
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/starchy1.jfif"
+            />
+            <img
+              class="col-6 img-thumbnail rounded"
+              src="/images/starchy2.jfif"
+            />
           </div>
         </div>
       </div>
