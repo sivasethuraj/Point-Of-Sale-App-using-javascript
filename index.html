@@ -20,12 +20,17 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12 col-md-5 leftside-top">
+        <!--  -->
+        <div
+          class="col-sm-12 col-md-5 leftside-top istrow overflow-auto"
+          id="tablepage"
+        >
           <div class="my-1">
             <input
               class="form-control"
               value="Total Price Is : "
               readonly
+              id="wholetotalprice"
               type="text"
             />
 
@@ -36,12 +41,15 @@
                   <th>Quantity</th>
                   <th>Unit Price</th>
                   <th>Total Price</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody id="tbody"></tbody>
             </table>
           </div>
         </div>
+        <!--  -->
+
         <div class="col-12 col-sm-12 col-md-2 carousel slide" id="nav-items">
           <ul class="nav flex-column nav-pills carousel-inner">
             <li class="nav-item my-1 arrow">
@@ -56,9 +64,19 @@
                 ><i class="fa-solid fa-up-long text-black"></i
               ></a>
             </li>
+            <li class="nav-item">
+              <a
+                class="all-btn nav-link text-light bg-primary carousel-item menu active"
+                aria-current="page"
+                href="#"
+                onclick="changeImage(this)"
+                id="all-btn"
+                >All Items</a
+              >
+            </li>
             <li class="nav-item my-1">
               <a
-                class="vegetarion nav-link text-light bg-primary carousel-item active menu"
+                class="vegetarion nav-link text-light bg-primary carousel-item menu"
                 aria-current="page"
                 href="#"
                 onclick="changeImage(this)"
@@ -156,16 +174,6 @@
                 >Starchy food.</a
               >
             </li>
-            <li class="nav-item">
-              <a
-                class="all-btn nav-link text-light bg-primary carousel-item menu"
-                aria-current="page"
-                href="#"
-                onclick="changeImage(this)"
-                id="all-btn"
-                >All Items</a
-              >
-            </li>
 
             <li class="nav-item my-1 arrow">
               <a
@@ -182,125 +190,125 @@
           </ul>
         </div>
         <div
-          class="col-sm-12 col-md-5 rightside-top istrow d-flex flex-column justify-content-between overflow-scroll"
+          class="col-sm-12 col-md-5 rightside-top istrow overflow-auto flex-row"
           id="list-items"
         >
-          <div class="row flex-row my-1" id="veg">
+          <div class="my-1" id="veg">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="11"
               src="/images/veg1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="12"
               src="/images/veg4.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="nonveg">
+          <div class="my-1" id="nonveg">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="21"
               src="/images/nonveg1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="22"
               src="/images/nonveg2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="cooldrinks">
+          <div class="my-1" id="cooldrinks">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="31"
               src="/images/cooldrink1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="32"
               src="/images/cooldrink2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="snacks">
+          <div class="my-1" id="snacks">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="41"
               src="/images/snack1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="42"
               src="/images/snack2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="tea">
+          <div class="my-1" id="tea">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="51"
               src="/images/tea1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="52"
               src="/images/tea2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="noodles">
+          <div class="my-1" id="noodles">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="61"
               src="/images/noodle1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="62"
               src="/images/noodle2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="dumplings">
+          <div class="my-1" id="dumplings">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="71"
               src="/images/dumpling1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="72"
               src="/images/dumpling2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="icecreams">
+          <div class="my-1" id="icecreams">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="81"
               src="/images/icecream1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="82"
               src="/images/icecream2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="fruits">
+          <div class="my-1" id="fruits">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="91"
               src="/images/fruit1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="92"
               src="/images/fruit2.jfif"
             />
           </div>
-          <div class="row flex-row my-1" id="starchy">
+          <div class="my-1" id="starchy">
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="101"
               src="/images/starchy1.jfif"
             />
             <img
-              class="col-6 img-thumbnail rounded g-2"
+              class="col-3 img-thumbnail rounded"
               id="102"
               src="/images/starchy2.jfif"
             />
@@ -328,16 +336,16 @@
           </div>
           <div class="row">
             <div class="col-3 col-md-3">
-              <input class="form-control" type="text" id="itemname" />
+              <input class="form-control" type="text" id="extraitemname" />
             </div>
             <div class="col-3 col-md-3">
-              <input class="form-control" type="text" id="itemprice" />
+              <input class="form-control" type="number" id="itemprice" />
             </div>
             <div class="col-3 col-md-3">
-              <input class="form-control" type="text" id="itemquantity" />
+              <input class="form-control" type="number" id="itemquantity" />
             </div>
             <div class="col">
-              <button class="btn btn-primary">Add</button>
+              <button class="btn btn-primary" id="addbtn">Add</button>
             </div>
           </div>
         </div>

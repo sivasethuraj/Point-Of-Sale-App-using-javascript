@@ -28,10 +28,19 @@ body {
   font-size: 2rem;
 }
 
-/* .istrow {
+.istrow {
   height: 75vh;
-} */
+}
 
-td {
+td:not(:first-child) {
   text-align: center;
+}
+.fa-xmark {
+  color: #da0c0c;
+}
+.fa-xmark:hover {
+  transform: scale(1.5);
+}
+#list-items div {
+  display: inline;
 }

@@ -80,18 +80,22 @@ image.forEach( ( eachElement ) => {
 
         currentObject.qty = parseInt( currentObject.qty ) + 1;
         currentObject.totalPrice = parseFloat( currentObject.qty ) * parseFloat( currentObject.unitPrice );
+
         localStorage.setItem( `${currentObject.id}`, JSON.stringify( currentObject ) );
         toConvertTableData();
     } );
 } );
 
-// <== METHOD FOR UPDATE ITEMS : ==>
+// <== METHOD FOR UPDATE ITEMS IN TABLE DATA: ==>
+
+const wholeTotalPriceTag = document.querySelector( '#wholetotalprice' );
 
 function toConvertTableData () {
+    let wholeTotalPrice = 0;
     document.querySelector( '#tbody' ).innerHTML = '';
     for ( const key in localStorage ) {
 
-        console.log( ` ${localStorage.getItem( key )}` )
+
         const object = JSON.parse( localStorage.getItem( key ) );
 
         if ( localStorage.hasOwnProperty( key ) ) {
@@ -100,23 +104,39 @@ function toConvertTableData () {
                   <td>${object.qty}</td>
                   <td>${object.unitPrice}</td>
                   <td>${( object.qty * object.unitPrice )}</td>
+                  <td><i class="fa-solid fa-xmark" onclick="removeList(this)"></i></td>
                 </tr>`;
+
+            wholeTotalPrice += object.totalPrice;
+            wholeTotalPriceTag.value = `Total Price Is: ${wholeTotalPrice}`;
             const tBody = document.querySelector( '#tbody' ).innerHTML += tr;
         }
     }
 }
 
+function removeList ( clickedElement ) {
 
-$( '#veg ' ).hide()
-$( '#nonveg ' ).hide()
-$( '#snacks ' ).hide()
-$( '#tea ' ).hide()
-$( '#noodles ' ).hide()
-$( '#dumplings ' ).hide()
-$( '#icecreams ' ).hide()
-$( '#fruits ' ).hide()
-$( '#starchy ' ).hide()
-$( '#cooldrinks ' ).hide()
+    const parent = clickedElement.parentNode.parentNode.children
+    const clickedNodeName = parent[ 0 ].textContent;
+
+    for ( const key in localStorage ) {
+        const object = JSON.parse( localStorage.getItem( key ) );
+
+        if ( localStorage.hasOwnProperty( key ) ) {
+            if ( object.name == clickedNodeName ) {
+
+                localStorage.removeItem( object.id );
+                break;
+            }
+
+        }
+    }
+    toConvertTableData();
+}
+
+$( 'document' ).ready( () => {
+    toConvertTableData();
+} );
 
 function changeImage ( element ) {
 
@@ -198,4 +218,55 @@ function changeImage ( element ) {
         $( '#cooldrinks ' ).show()
 
     }
+}
+
+const extraItemName = document.querySelector( '#extraitemname' );
+const extraItemPrice = document.querySelector( '#itemprice' );
+const extraItemQuantity = document.querySelector( '#itemquantity' );
+const extraItemAddBtn = document.querySelector( '#addbtn' );
+
+extraItemAddBtn.addEventListener( 'click', addExtraItemToBill );
+let extraItemId = 102;
+
+function addExtraItemToBill () {
+
+    let currentObject = { id: '', name: '', qty: '', unitPrice: '', totalPrice: '' };
+
+    if ( checkValid() ) {
+
+        extraItemId += 1;
+
+        currentObject.id = String( extraItemId );
+        currentObject.name = extraItemName.value;
+        currentObject.unitPrice = extraItemPrice.value;
+        currentObject.qty = extraItemQuantity.value;
+        currentObject.totalPrice = parseFloat( currentObject.unitPrice ) * parseFloat( currentObject.qty );
+        console.log( 'current object:', currentObject );
+
+        localStorage.setItem( `${currentObject.id}`, JSON.stringify( currentObject ) );
+
+        clearValues();
+        toConvertTableData();
+
+    } else {
+        alert( 'Enter All Values Correctly!' );
+    }
+}
+
+function checkValid () {
+
+    let valid = false;
+
+    if ( extraItemName.value == '' || extraItemPrice.value == '' || extraItemQuantity.value == '' ) {
+        return valid;
+    }
+    else {
+        valid = true;
+        return valid;
+    }
+}
+function clearValues () {
+    extraItemName.value = '';
+    extraItemPrice.value = '';
+    extraItemQuantity.value = '';
 }
