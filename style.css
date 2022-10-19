@@ -29,7 +29,7 @@ body {
 }
 
 .istrow {
-  height: 75vh;
+  height: 31rem;
 }
 
 td:not(:first-child) {
@@ -39,8 +39,12 @@ td:not(:first-child) {
   color: #da0c0c;
 }
 .fa-xmark:hover {
-  transform: scale(1.5);
+  transform: scale(1.7);
 }
 #list-items div {
   display: inline;
+}
+img {
+  max-height: 6rem;
+  aspect-ratio: 8 16;
 }

@@ -89,9 +89,10 @@ image.forEach( ( eachElement ) => {
 // <== METHOD FOR UPDATE ITEMS IN TABLE DATA: ==>
 
 const wholeTotalPriceTag = document.querySelector( '#wholetotalprice' );
+let wholeTotalPrice;
 
 function toConvertTableData () {
-    let wholeTotalPrice = 0;
+    wholeTotalPrice = 0;
     document.querySelector( '#tbody' ).innerHTML = '';
     for ( const key in localStorage ) {
 
@@ -112,15 +113,18 @@ function toConvertTableData () {
             const tBody = document.querySelector( '#tbody' ).innerHTML += tr;
         }
     }
+    billPaymentSector( wholeTotalPrice );
 }
 
 function removeList ( clickedElement ) {
 
-    const parent = clickedElement.parentNode.parentNode.children
+    const parent = clickedElement.parentNode.parentNode.children;
     const clickedNodeName = parent[ 0 ].textContent;
 
     for ( const key in localStorage ) {
+
         const object = JSON.parse( localStorage.getItem( key ) );
+        console.log( key );
 
         if ( localStorage.hasOwnProperty( key ) ) {
             if ( object.name == clickedNodeName ) {
@@ -259,6 +263,8 @@ function checkValid () {
 
     if ( extraItemName.value == '' || extraItemPrice.value == '' || extraItemQuantity.value == '' ) {
         return valid;
+    } else if ( extraItemPrice.value <= 0 || extraItemQuantity.value <= 0 ) {
+        return valid;
     }
     else {
         valid = true;
@@ -266,7 +272,79 @@ function checkValid () {
     }
 }
 function clearValues () {
+
     extraItemName.value = '';
     extraItemPrice.value = '';
     extraItemQuantity.value = '';
+}
+
+// 
+const billBtn = document.querySelector( '#bill-btn' );
+const payBtn = document.querySelector( '#goback-btn' );
+
+// FOR INITIAL TABLE PAGE SHOW 
+$( '#tablepage' ).show();
+$( '#billpage' ).hide();
+
+billBtn.addEventListener( 'click', () => {
+    const tableBody = document.querySelector( '#tbody' ).rows.length;
+    console.log( 'tableBody', tableBody );
+
+    if ( parseInt( tableBody ) > 0 ) {
+        toBillPage();
+    } else {
+        alert( 'Please Select Atleast One Item' );
+    }
+} );
+
+payBtn.addEventListener( 'click', toTablePage );
+
+
+const amountlabel = document.querySelector( '#amount' );
+const gstAmountlabel = document.querySelector( '#gstamount' );
+const payablelabel = document.querySelector( '#payable' );
+const tenderlabel = document.querySelector( '#tender' );
+const changelabel = document.querySelector( '#change' );
+const changeInput = document.querySelector( '#change-input' );
+
+const billPaymentSector = ( purchasedAmount ) => {
+
+    amountlabel.value = `${purchasedAmount}`;
+    gstAmountlabel.value = ( parseFloat( ( wholeTotalPrice / 100 ) * 18 ) ).toFixed( 2 );
+    payablelabel.value = parseFloat( amountlabel.value ) + parseFloat( gstAmountlabel.value );
+
+    gstAmountlabel.addEventListener( 'keyup', () => {
+        payablelabel.value = ( parseFloat( amountlabel.value ) + parseFloat( gstAmountlabel.value ) ).toFixed( 2 );
+    } );
+
+    tenderlabel.addEventListener( 'keyup', () => {
+
+        changelabel.value = ( parseFloat( tenderlabel.value ) - parseFloat( payablelabel.value ) ).toFixed( 2 );
+        changeInput.value = `Change : ${changelabel.value}`;
+    } );
+
+}
+
+function toBillPage () {
+    $( '#tablepage' ).hide();
+    $( '#billpage' ).show();
+}
+function toTablePage () {
+    console.log( 'changelabel.value', changelabel.value );
+
+    if ( parseFloat( changelabel.value ) >= 0 ) {
+
+        $( '#billpage' ).hide();
+        $( '#tablepage' ).show();
+
+        tenderlabel.value = '';
+        changeInput.value = '';
+        changelabel.value = '';
+        wholeTotalPriceTag.value = '';
+        localStorage.clear();
+        toConvertTableData();
+    } else {
+
+        alert( 'can you Please Enter Correct Tender Amount!' );
+    }
 }
