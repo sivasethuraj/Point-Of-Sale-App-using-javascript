@@ -109,9 +109,20 @@ function toConvertTableData () {
                 </tr>`;
 
             wholeTotalPrice += object.totalPrice;
-            wholeTotalPriceTag.value = `Total Price Is: ${wholeTotalPrice}`;
+
             const tBody = document.querySelector( '#tbody' ).innerHTML += tr;
+
+
         }
+    }
+    const tableBody = document.querySelector( '#tbody' ).rows.length;
+    console.log( 'tableBody', parseInt( tableBody ) );
+    if ( parseInt( tableBody ) ) {
+        console.log( 'running1' );
+        wholeTotalPriceTag.value = `Total Price Is: ${wholeTotalPrice}`;
+    } else {
+        console.log( 'running2' );
+        wholeTotalPriceTag.value = 'Total Price Is: ';
     }
     billPaymentSector( wholeTotalPrice );
 }
@@ -342,6 +353,7 @@ function toTablePage () {
         changelabel.value = '';
         wholeTotalPriceTag.value = '';
         localStorage.clear();
+        alert( 'successfully paid !' );
         toConvertTableData();
     } else {
 
